@@ -3,7 +3,7 @@ package com.example.problems.toptal;
 import java.util.*;
 
 public class ReformatPhoneNumber {
-    public  String reformatNumber(String number) {
+    public static String reformatNumber(String number) {
         number = removeSpacesAndDashes(number);
         StringBuilder sb = new StringBuilder();
 
