@@ -3,12 +3,16 @@ package com.example.problems;
 import java.util.*;
 
 public class ReformatPhoneNumber {
-    public static String reformatNumber(String number) {
+    public  String reformatNumber(String number) {
         number = removeSpacesAndDashes(number);
         StringBuilder sb = new StringBuilder();
 
         if (number.length() < 4) {
             return number;
+        }
+
+        if(number.length()==4) {
+            return number.substring(0,2) + '-' + number.substring(2);
         }
 
         sb.append(number.substring(0, 3) + '-');
