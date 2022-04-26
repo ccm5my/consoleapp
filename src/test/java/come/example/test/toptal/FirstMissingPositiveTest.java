@@ -1,7 +1,7 @@
-package come.example.test;
+package come.example.test.toptal;
 
 
-import com.example.problems.FirstMissingPositive;
+import com.example.problems.toptal.FirstMissingPositive;
 import org.junit.Assert;
 import org.junit.Test;
 

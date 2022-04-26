@@ -1,4 +1,4 @@
-package com.example.problems;
+package com.example.problems.toptal;
 
 import java.util.*;
 

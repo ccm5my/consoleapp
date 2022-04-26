@@ -1,6 +1,6 @@
-package come.example.test;
+package come.example.test.toptal;
 
-import com.example.problems.ReformatPhoneNumber;
+import com.example.problems.toptal.ReformatPhoneNumber;
 import org.junit.Assert;
 import org.junit.Test;
 
