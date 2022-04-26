@@ -1,2 +1,0 @@
-# consoleapp
-java console app
