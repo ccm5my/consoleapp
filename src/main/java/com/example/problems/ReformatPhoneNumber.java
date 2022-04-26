@@ -9,27 +9,34 @@ public class ReformatPhoneNumber {
 
         if (number.length() < 4) {
             return number;
-        } else {
-            sb.append(number.substring(0,3) + '-');
-            int start = 3;
-            int length = number.substring(start).length();
-
-            if (length == 2) {
-                sb.append(number.substring(start));
-            }
-
-            if (length == 3) {
-                sb.append(number.substring(start));
-            }
-
-            if (length == 4) {
-                sb.append(number.substring(start, start + 2) + '-' + number.substring(start + 2));
-            }
-
-            if (sb.charAt(sb.length() - 1) == '-') {
-                sb.deleteCharAt(sb.length() - 1);
-            }
         }
+
+        sb.append(number.substring(0, 3) + '-');
+        int start = 3;
+        int length = number.substring(start).length();
+
+        while (length > 4) {
+            sb.append(number.substring(start, start+3) + '-');
+            start = start+3;
+            length = number.substring(start).length();
+        }
+
+        if (length == 2) {
+            sb.append(number.substring(start));
+        }
+
+        if (length == 3) {
+            sb.append(number.substring(start));
+        }
+
+        if (length == 4) {
+            sb.append(number.substring(start, start + 2) + '-' + number.substring(start + 2));
+        }
+
+        if (sb.charAt(sb.length() - 1) == '-') {
+            sb.deleteCharAt(sb.length() - 1);
+        }
+
         return sb.toString();
     }
 
