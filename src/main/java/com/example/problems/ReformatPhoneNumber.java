@@ -5,9 +5,18 @@ import java.util.*;
 public class ReformatPhoneNumber {
     public static String reformatNumber(String number) {
         number = removeSpacesAndDashes(number);
+        if(number.length() < 4) {
+            return number;
+        }
 
+        StringBuilder sb = new StringBuilder();
+        sb.append(number, 0, 3);
+        sb.append('-');
 
-        return number;
+        if(number.substring(3).length() < 4) {
+            sb.append(number.substring(3));
+        }
+        return sb.toString();
     }
 
     private static String removeSpacesAndDashes(String number) {
