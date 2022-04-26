@@ -5,22 +5,31 @@ import java.util.*;
 public class ReformatPhoneNumber {
     public static String reformatNumber(String number) {
         number = removeSpacesAndDashes(number);
-        if(number.length() < 4) {
-            return number;
-        }
-
-        int start = 0;
-        int end = 0;
         StringBuilder sb = new StringBuilder();
 
-        for(int i =0; i < number.length(); i++) {
-            end++;
-            if(number.substring(start,end).length()==3) {
-                sb.append(number.substring(start,end) + '-');
-                start = end;
+        if (number.length() < 4) {
+            return number;
+        } else {
+            sb.append(number.substring(0,3) + '-');
+            int start = 3;
+            int length = number.substring(start).length();
+
+            if (length == 2) {
+                sb.append(number.substring(start));
+            }
+
+            if (length == 3) {
+                sb.append(number.substring(start));
+            }
+
+            if (length == 4) {
+                sb.append(number.substring(start, start + 2) + '-' + number.substring(start + 2));
+            }
+
+            if (sb.charAt(sb.length() - 1) == '-') {
+                sb.deleteCharAt(sb.length() - 1);
             }
         }
-
         return sb.toString();
     }
 
@@ -29,7 +38,7 @@ public class ReformatPhoneNumber {
         int matches = 0;
         for (int i = 0; i < number.length(); i++) {
             if (number.charAt(i) == '-' || number.charAt(i) == (' ')) {
-                sb.deleteCharAt(i-matches);
+                sb.deleteCharAt(i - matches);
                 matches++;
             }
         }
