@@ -9,13 +9,18 @@ public class ReformatPhoneNumber {
             return number;
         }
 
+        int start = 0;
+        int end = 0;
         StringBuilder sb = new StringBuilder();
-        sb.append(number, 0, 3);
-        sb.append('-');
 
-        if(number.substring(3).length() < 4) {
-            sb.append(number.substring(3));
+        for(int i =0; i < number.length(); i++) {
+            end++;
+            if(number.substring(start,end).length()==3) {
+                sb.append(number.substring(start,end) + '-');
+                start = end;
+            }
         }
+
         return sb.toString();
     }
 
